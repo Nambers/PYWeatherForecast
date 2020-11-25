@@ -1,5 +1,5 @@
-# PYWeatherRport
-一个同python机器学习做的简易天气预报
+# PYWeatherReport
+一个用python机器学习做的简易天气预报
 
 模型是用的决策树森林
 
