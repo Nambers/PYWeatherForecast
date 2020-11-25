@@ -15,6 +15,8 @@ MAE优化到3.6021665834173815
 
 把丢失值取为手动平均值2
 
+![DdngHO.png](https://s3.ax1x.com/2020/11/25/DdngHO.png)]
+
 > 2020/11/24
 
 模型是用的决策树森林
@@ -24,3 +26,4 @@ MAE优化到3.6021665834173815
 MAE目前是3.604，未来我会尽可能继续优化
 
 ![image](https://github.com/Nambers/PYWeatherReport/blob/main/result.jpg)
+
