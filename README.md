@@ -15,7 +15,7 @@ MAE优化到3.6021665834173815
 
 把丢失值取为手动平均值2
 
-![DdngHO.png](https://s3.ax1x.com/2020/11/25/DdngHO.png)]
+![image](https://s3.ax1x.com/2020/11/25/DdngHO.png)
 
 > 2020/11/24
 
