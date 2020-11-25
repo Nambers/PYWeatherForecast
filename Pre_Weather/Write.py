@@ -4,6 +4,8 @@ from GetData import GetData
 from bs4 import *
 import datetime as DT
 import csv
+
+
 # 功能: 写csv
 
 def Write(years, b, c):
@@ -22,9 +24,10 @@ def Write(years, b, c):
         week_ago = (today - DT.timedelta(days=b[0])).date()
         # 七天后
         week_pre = (today + DT.timedelta(days=b[1])).date()
-        # 爬取数据
+        # 爬取数据链接
         url = "http://www.meteomanz.com/sy2?l=1&cou=2250&ind=59287&d1=" + str(week_ago.day).zfill(2) + "&m1=" + str(
-            week_ago.month).zfill(2) + "&y1=" + str(today.year - a) + "&d2=" + str(week_pre.day).zfill(2) + "&m2=" + str(
+            week_ago.month).zfill(2) + "&y1=" + str(today.year - a) + "&d2=" + str(week_pre.day).zfill(
+            2) + "&m2=" + str(
             week_pre.month).zfill(2) + "&y2=" + str(today.year - a)
         g = GetData(url).Get()
         # beautifulsoup解析网页
@@ -44,8 +47,10 @@ def Write(years, b, c):
                     if "00/" in text[i]:
                         flag = True
                 elif i == 8:
+                    # 把/8去掉，网页显示的格式
                     text[i] = text[i].string.replace("/8", "")
                 elif i == 5:
+                    # 去掉单位
                     text[i] = text[i].string.replace(" Hpa", "")
                 elif i == 6:
                     # 去掉风力里括号内的内容
@@ -53,9 +58,10 @@ def Write(years, b, c):
                 else:
                     # 取每个元素的内容
                     text[i] = text[i].string
-                # 丢失数据都取0(简陋做法)
-                text[i] = text[i].replace("-", "0")
-                text[i] = text[i].replace("Tr", "0")
+                # 丢失数据都取2(简陋做法)
+                # 这么做 MAE=3.6021
+                text[i] = text[i].replace("-", "2")
+                text[i] = text[i].replace("Tr", "2")
             # 4. 写入csv文件内容
             if not flag:
                 csv_writer.writerow(text)
