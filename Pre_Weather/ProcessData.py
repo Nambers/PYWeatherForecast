@@ -11,9 +11,9 @@ def ProcessData():
     # 如 years = [2,1]就是用2019和2018年现在的(这个时候)数据做训练集
     years = [1]
     # 写入csv
-    Write(years, [7, 0], "weather_train_train.csv")
-    Write(years, [0, 7], "weather_train_valid.csv")
-    Write([0], [7, 0], "weather_test.csv")
+    Write(years, [20, 0], "weather_train_train.csv")
+    Write(years, [0, 20], "weather_train_valid.csv")
+    Write([0], [20, 0], "weather_test.csv")
     X_test = pd.read_csv("weather_test.csv", index_col="Time", parse_dates=True)
     # 读取测试集和验证集
     X = pd.read_csv("weather_train_train.csv", index_col="Time", parse_dates=True)
@@ -53,12 +53,14 @@ def ProcessData():
     imputed_y_valid = pd.DataFrame(my_imputer.transform(y_valid))
     imputed_y_train.columns = y_train.columns
     imputed_y_valid.columns = y_valid.columns
+    imputed_X_test = pd.DataFrame(my_imputer.fit_transform(X_test))
+
     # 画折线图
-    sns.lineplot(data=X)
-    plt.show()
-    sns.lineplot(data=y)
-    plt.show()
-    sns.lineplot(data=X_test)
-    plt.show()
+    # sns.lineplot(data=X)
+    # plt.show()
+    # sns.lineplot(data=y)
+    # plt.show()
+    # sns.lineplot(data=X_test)
+    # plt.show()
     # 返回分割后的数据集
-    return [imputed_X_train, imputed_X_valid, imputed_y_train, imputed_y_valid, X_test]
+    return [imputed_X_train, imputed_X_valid, imputed_y_train, imputed_y_valid, imputed_X_test]

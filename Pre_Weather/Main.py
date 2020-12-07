@@ -1,6 +1,8 @@
 import joblib
 import datetime as DT
 from GetModel import GetModel
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # 训练并保存模型并返回MAE
 r = GetModel()
@@ -17,6 +19,10 @@ preds = model.predict(r[1])
 # plt.show()
 # 打印结果到控制台
 print("未来7天预测")
+# # 绘画折线图
+# sns.relplot(x="Time", y="Ave_t", kind="line", data=preds, ci=None)
+# # 显示
+# plt.show()
 for a in range(1, 7):
     today = DT.datetime.now()
     time = (today + DT.timedelta(days=a)).date()

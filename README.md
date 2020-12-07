@@ -3,7 +3,15 @@
 
 模型是用的决策树森林
 
+在Pre_Weather文件夹下用 python Main.py 命令运行
+
 训练数据来源于[http://www.meteomanz.com/](http://www.meteomanz.com/)
+
+> 2020/12/7
+
+优化和修复代码
+
+增加模型保存和填充缺失数据
 
 > 2020/11/25
 
