@@ -1,6 +1,6 @@
 # PYWeatherReport
 ## 简介
-一个用python机器学习(ml)做的简易天气预报
+一个用python机器学习(ml)做的广州地区的简易天气预报
 
 模型是用的决策树森林
 
