@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# @Time: 2020/12/16
+# @Author: Eritque arcus
+# @File: ProcessData.py
 from Write import Write
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -5,15 +9,23 @@ from sklearn.impute import SimpleImputer
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+
 # 功能: 数据预处理
 def ProcessData():
+    """
+    :return:
+        [X_train X训练数据集,
+        X_valid X训练数据集的验证集,
+        y_train Y训练数据集,
+        y_valid Y训练数据集的验证集,
+        imputed_X_test 预测数据集]
+    """
     # 用近几年的数据做训练集
-    # 如 years = [2,1]就是用2019和2018年现在的(这个时候)数据做训练集
-    years = [1]
+    # 如 [1,1], [20, 0]就是用2019年的今天的20天前到2019年的今天数据做训练集
     # 写入csv
-    Write(years, [20, 0], "weather_train_train.csv")
-    Write(years, [0, 20], "weather_train_valid.csv")
-    Write([0], [20, 0], "weather_test.csv")
+    Write([1, 1], [20, 0], "weather_train_train.csv")
+    Write([1, 1], [0, 20], "weather_train_valid.csv")
+    Write([0, 0], [20, 0], "weather_test.csv")
     X_test = pd.read_csv("weather_test.csv", index_col="Time", parse_dates=True)
     # 读取测试集和验证集
     X = pd.read_csv("weather_train_train.csv", index_col="Time", parse_dates=True)

@@ -1,4 +1,7 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
+# @Time: 2020/12/16
+# @Author: Eritque arcus
+# @File: GetData.py
 # 功能: 爬取数据
 import urllib3
 
@@ -8,6 +11,10 @@ class GetData:
     headers = ""
 
     def __init__(self, url, header=""):
+        """
+        :param url: 获取的网址
+        :param header: 请求头，默认已内置
+        """
         self.url = url
         if header == "":
             self.headers = {
@@ -24,5 +31,8 @@ class GetData:
             self.headers = header
 
     def Get(self):
+        """
+        :return: 网址对应的网页内容
+        """
         http = urllib3.PoolManager()
         return http.request('GET', self.url, headers=self.headers).data

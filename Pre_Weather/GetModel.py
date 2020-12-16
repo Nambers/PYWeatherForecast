@@ -1,12 +1,21 @@
+# -*- coding: utf-8 -*-
+# @Time: 2020/12/16
+# @Author: Eritque arcus
+# @File: GetModel.py
 from sklearn.ensemble import RandomForestRegressor
 import joblib
 from sklearn.metrics import mean_absolute_error
-
 from ProcessData import ProcessData
 
 
 # 训练并保存模型
 def GetModel(a="Model.pkl"):
+    """
+    :param a: 模型文件名
+    :return:
+        [socre: MAE评估结果,
+        X_test: 预测数据集]
+    """
     # 取到数据
     [X_train, X_valid, y_train, y_valid, X_test] = ProcessData()
     # 用XGB模型，不过用有bug
