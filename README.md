@@ -35,6 +35,20 @@ preds = model.predict(r[1])
 或
 
 参考`Main.py`，自己写一个符合你需求启动文件
+## 系列教程
+
+[机器学习参考篇: python+sklearn+kaggle机器学习](https://blog.csdn.net/qq_40832960/article/details/109260388)
+
+[用python+sklearn(机器学习)实现天气预报 准备](https://blog.csdn.net/qq_40832960/article/details/111146467)
+
+[用python+sklearn(机器学习)实现天气预报数据 数据](https://blog.csdn.net/qq_40832960/article/details/111182425)
+
+ [用python+sklearn(机器学习)实现天气预报 模型和使用](https://blog.csdn.net/qq_40832960/article/details/111238926)
+ 
+> 2020/12/16
+
+优化和修复代码，增加数据可视化显示
+![CSDNimage](https://img-blog.csdnimg.cn/20201216163833585.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwODMyOTYw,size_16,color_FFFFFF,t_70)
 
 > 2020/12/7
 
