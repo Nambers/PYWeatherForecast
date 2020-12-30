@@ -3,14 +3,14 @@
 # @Author: Eritque arcus
 # @File: Write.py
 import re
+from bs4 import BeautifulSoup
 from GetData import GetData
-from bs4 import *
 import datetime as DT
 import csv
 
 
 # 功能: 写csv
-def Write(years, b, c):
+def write(years, b, c):
     """
     :param years: [开始日期距离现在的年份, 结束日期距离现在的年份]
     :param b: [开始日期距离现在日期的天数, 结束日期距离现在日期的天数]
@@ -33,7 +33,7 @@ def Write(years, b, c):
     week_pre = (today + DT.timedelta(days=b[1])).date()
     # 爬取数据链接
     url = "http://www.meteomanz.com/sy2?l=1&cou=2250&ind=59287&d1=" + str(week_ago.day).zfill(2) + "&m1=" + str(
-        week_ago.month).zfill(2) + "&y1=" + str(week_ago.month) + "&d2=" + str(week_pre.day - years[0]).zfill(
+        week_ago.month).zfill(2) + "&y1=" + str(week_ago.year - years[0]) + "&d2=" + str(week_pre.day).zfill(
         2) + "&m2=" + str(week_pre.month).zfill(2) + "&y2=" + str(week_pre.year - years[1])
     # 显示获取数据集的网址
     print(url)
