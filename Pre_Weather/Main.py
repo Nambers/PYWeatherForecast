@@ -7,6 +7,11 @@ import datetime as DT
 from GetModel import GetModel
 import matplotlib.pyplot as plt
 
+
+def findNeg(t, n: int):
+    return n if t == 0 else -n
+
+
 # 训练并保存模型并返回MAE
 r = GetModel()
 print("MAE:", r[0])
@@ -29,8 +34,12 @@ all_low_t = []
 for a in range(1, 7):
     today = DT.datetime.now()
     time = (today + DT.timedelta(days=a)).date()
-    print(time.year, '/', time.month, '/', time.day, ': 平均气温', preds[a][0], '最高气温', preds[a][1],
-          '最低气温', preds[a][2], "降雨量", preds[a][3], "风力", preds[a][4])
+    print(time.year, '/', time.month, '/', time.day,
+          ': 平均气温',  preds[a][0],
+          '最高气温', preds[a][1],
+          '最低气温', preds[a][2],
+          "降雨量", preds[a][3],
+          "风力", preds[a][4])
     all_ave_t.append(preds[a][0])
     all_high_t.append(preds[a][1])
     all_low_t.append(preds[a][2])
@@ -39,7 +48,7 @@ temp = {"ave_t": all_ave_t, "high_t": all_high_t, "low_t": all_low_t}
 plt.plot(range(1, 7), temp["ave_t"], color="green", label="ave_t")
 plt.plot(range(1, 7), temp["high_t"], color="red", label="high_t")
 plt.plot(range(1, 7), temp["low_t"], color="blue", label="low_t")
-plt.legend() # 显示图例
+plt.legend()  # 显示图例
 plt.ylabel("Temperature(°C)")
 plt.xlabel("day")
 # 显示

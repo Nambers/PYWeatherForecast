@@ -1,0 +1,9 @@
+
+tpython:S117;"XRename this local variable "X_train" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÏéØ‹úÿÿÿÿ
+|python:S117<"`Rename this local variable "imputed_X_train" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆË°ÿÿÿÿÿ
+ipython:S1542"QRename function "ProcessData" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÐžÕÎ
+tpython:S117;"XRename this local variable "X_valid" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÏéØ‹úÿÿÿÿ
+|python:S117="`Rename this local variable "imputed_X_valid" to match the regular expression ^[_a-z][a-z0-9_]*$.(–ÓÊëûÿÿÿÿ
+spython:S117"WRename this local variable "X_test" to match the regular expression ^[_a-z][a-z0-9_]*$.(òî Œúÿÿÿÿ
+6python:S125F"Remove this commented out code.(Ÿ×öÒ
+vpython:S117D"_Rename this local variable "imputed_X_test" to match the regular expression ^[_a-z][a-z0-9_]*$.(í¤ãó

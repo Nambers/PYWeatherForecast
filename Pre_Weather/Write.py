@@ -8,6 +8,8 @@ from GetData import GetData
 import datetime as DT
 import csv
 
+def a(t):
+    return t.replace(" - ", "0")
 
 # 功能: 写csv
 def write(years, b, c):
@@ -24,6 +26,7 @@ def write(years, b, c):
     csv_writer = csv.writer(f)
 
     # 3. 构建列表头
+    # , "negAve", "negMax", "negMin"
     csv_writer.writerow(["Time", "Ave_t", "Max_t", "Min_t", "Prec", "SLpress", "Winddir", "Windsp", "Cloud"])
     # 取现在日期
     today = DT.datetime.now()
@@ -31,8 +34,10 @@ def write(years, b, c):
     week_ago = (today - DT.timedelta(days=b[0])).date()
     # 20天后
     week_pre = (today + DT.timedelta(days=b[1])).date()
+    # 城市id 广州59287 青岛 54857
+    id = "59287"
     # 爬取数据链接
-    url = "http://www.meteomanz.com/sy2?l=1&cou=2250&ind=59287&d1=" + str(week_ago.day).zfill(2) + "&m1=" + str(
+    url = "http://www.meteomanz.com/sy2?l=1&cou=2250&ind=" + id + "&d1=" + str(week_ago.day).zfill(2) + "&m1=" + str(
         week_ago.month).zfill(2) + "&y1=" + str(week_ago.year - years[0]) + "&d2=" + str(week_pre.day).zfill(
         2) + "&m2=" + str(week_pre.month).zfill(2) + "&y2=" + str(week_pre.year - years[1])
     # 显示获取数据集的网址
@@ -48,6 +53,7 @@ def write(years, b, c):
         # 取tr内每个td的内容
         text = tr.find_all(name="td")
         flag = False
+        negA = negMax = negMin = False
         for i in range(0, len(text)):
             if i == 0:
                 text[i] = text[i].a.string
@@ -68,8 +74,10 @@ def write(years, b, c):
                 text[i] = text[i].string
             # 丢失数据都取2(简陋做法)
             # 这么做 MAE=3.6021
-            text[i] = text[i].replace("-", "2")
-            text[i] = text[i].replace("Tr", "2")
+            text[i] = "2" if text[i] == "-" else text[i]
+            text[i] = "2" if text[i] == "Tr" else text[i]
+        text = text[0:9]
+        # ext += [str(int(negA)), str(int(negMax)), str(int(negMin))]
         # 4. 写入csv文件内容
         if not flag:
             csv_writer.writerow(text)

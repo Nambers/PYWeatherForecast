@@ -1,0 +1,5 @@
+
+spython:S117"WRename this local variable "X_test" to match the regular expression ^[_a-z][a-z0-9_]*$.(–ıöÍÿÿÿÿÿ
+tpython:S117"XRename this local variable "X_train" to match the regular expression ^[_a-z][a-z0-9_]*$.(–ıöÍÿÿÿÿÿ
+tpython:S117"XRename this local variable "X_valid" to match the regular expression ^[_a-z][a-z0-9_]*$.(–ıöÍÿÿÿÿÿ
+fpython:S1542"NRename function "GetModel" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ğ¤Æ
