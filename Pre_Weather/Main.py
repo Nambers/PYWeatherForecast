@@ -8,10 +8,6 @@ from GetModel import GetModel
 import matplotlib.pyplot as plt
 
 
-def findNeg(t, n: int):
-    return n if t == 0 else -n
-
-
 # 训练并保存模型并返回MAE
 r = GetModel()
 print("MAE:", r[0])
