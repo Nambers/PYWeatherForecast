@@ -2,14 +2,17 @@
 # @Time: 2020/12/16
 # @Author: Eritque arcus
 # @File: Write.py
+from calendar import isleap
 import re
 from bs4 import BeautifulSoup
 from GetData import GetData
 import datetime as DT
 import csv
 
+
 def a(t):
     return t.replace(" - ", "0")
+
 
 # 功能: 写csv
 def write(years, b, c):
@@ -29,11 +32,28 @@ def write(years, b, c):
     # , "negAve", "negMax", "negMin"
     csv_writer.writerow(["Time", "Ave_t", "Max_t", "Min_t", "Prec", "SLpress", "Winddir", "Windsp", "Cloud"])
     # 取现在日期
-    today = DT.datetime.now()
+    today = DT.datetime.today()
+    # 闰年片段
+    st = isleap(today.year)
     # 取20天前日期
     week_ago = (today - DT.timedelta(days=b[0])).date()
     # 20天后
     week_pre = (today + DT.timedelta(days=b[1])).date()
+    if week_ago.month + week_pre.month == 3 or week_ago.month + week_pre.month == 5:
+        if week_ago.month == 2 and not st == isleap(today.year - years[0]):
+            if st:
+                # 今年是，去年或未来不是，所以-1
+                week_ago -= DT.timedelta(days=1)
+            else:
+                # 今年不是，去年或未来是，所以+1
+                week_ago += DT.timedelta(days=1)
+        if week_pre.month == 2 and not st == isleap(today.year - years[1]):
+            if st:
+                # 今年是，去年或未来不是，所以要-1
+                week_pre -= DT.timedelta(days=1)
+            else:
+                # 今年不是，去年或未来是，所以+1
+                week_pre += DT.timedelta(days=1)
     # 城市id 广州59287 青岛 54857
     id = "59287"
     # 爬取数据链接

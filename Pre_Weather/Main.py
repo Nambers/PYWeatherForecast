@@ -23,10 +23,10 @@ preds = model.predict(r[1])
 # plt.show()
 # 打印结果到控制台
 print("未来7天预测")
-print(preds)
 all_ave_t = []
 all_high_t = []
 all_low_t = []
+all_rainfall = []
 for a in range(1, 7):
     today = DT.datetime.now()
     time = (today + DT.timedelta(days=a)).date()
@@ -39,7 +39,8 @@ for a in range(1, 7):
     all_ave_t.append(preds[a][0])
     all_high_t.append(preds[a][1])
     all_low_t.append(preds[a][2])
-temp = {"ave_t": all_ave_t, "high_t": all_high_t, "low_t": all_low_t}
+    all_rainfall.append(preds[a][3])
+temp = {"ave_t": all_ave_t, "high_t": all_high_t, "low_t": all_low_t, "rainfall": all_rainfall}
 # 绘画折线图
 plt.plot(range(1, 7), temp["ave_t"], color="green", label="ave_t")
 plt.plot(range(1, 7), temp["high_t"], color="red", label="high_t")
@@ -48,4 +49,9 @@ plt.legend()  # 显示图例
 plt.ylabel("Temperature(°C)")
 plt.xlabel("day")
 # 显示
+plt.show()
+plt.plot(range(1, 7), temp["rainfall"], color="black", label="rainfall")
+plt.legend()
+plt.ylabel("mm")
+plt.xlabel("day")
 plt.show()

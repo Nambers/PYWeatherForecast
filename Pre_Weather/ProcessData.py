@@ -23,9 +23,9 @@ def ProcessData():
     # 用近几年的数据做训练集
     # 如 [1,1], [20, 0]就是用2019年的今天的20天前到2019年的今天数据做训练集
     # 写入csv
-    write([1, 1], [20, 0], "weather_train_train.csv")
-    write([1, 1], [0, 20], "weather_train_valid.csv")
-    write([0, 0], [20, 0], "weather_test.csv")
+    write([1, 1], [15, 0], "weather_train_train.csv")
+    write([1, 1], [0, 15], "weather_train_valid.csv")
+    write([0, 0], [15, 0], "weather_test.csv")
     X_test = pd.read_csv("weather_test.csv", index_col="Time", parse_dates=True)
     # 读取测试集和验证集
     X = pd.read_csv("weather_train_train.csv", index_col="Time", parse_dates=True)
