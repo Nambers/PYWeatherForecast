@@ -2,7 +2,7 @@
 ## 简介
 一个用python机器学习(ml)做的广州地区的简易天气预报
 
-模型是用的决策树森林
+模型是用的是sklearn的随机树森林(randomForest)
 
 在Pre_Weather文件夹下用 python Main.py 命令运行
 
