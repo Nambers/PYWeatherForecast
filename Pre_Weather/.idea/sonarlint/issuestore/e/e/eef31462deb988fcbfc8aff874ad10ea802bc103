@@ -1,9 +1,0 @@
-
-xpython:S117L"URename this local variable "negA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßœÑøüÿÿÿÿ8’™¦…ï.
-Npython:S1481L"*Remove the unused local variable "negMax".(ßœÑøüÿÿÿÿ8Ñù…ï.
-lpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 38 to the 15 allowed.(‚ˆùñ
-zpython:S117L"WRename this local variable "negMax" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßœÑøüÿÿÿÿ8’™¦…ï.
-Lpython:S1481L"(Remove the unused local variable "negA".(ßœÑøüÿÿÿÿ8Ğù…ï.
-Opython:S5806:"+Rename this variable; it shadows a builtin.(èìıúıÿÿÿÿ8úÑ¶„ï.
-zpython:S117L"WRename this local variable "negMin" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßœÑøüÿÿÿÿ8’™¦…ï.
-Npython:S1481L"*Remove the unused local variable "negMin".(ßœÑøüÿÿÿÿ8Ñù…ï.
